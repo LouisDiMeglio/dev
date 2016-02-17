@@ -1,6 +1,6 @@
 <header class="navbar  navbar-inverse">
   <div class="container">
-    <%= link_to "Kwuizknows", root_path, id: "logo" %>
+    <%= link_to image_tag("/assets/images/quizKnows-logo.png", :alt => "quizlogo"), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
