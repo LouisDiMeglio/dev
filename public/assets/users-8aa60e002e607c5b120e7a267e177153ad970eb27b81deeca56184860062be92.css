@@ -1,0 +1,15 @@
+/* line 4, /Users/LouisDiMeglio/code/p3/quizknows-development/app/assets/stylesheets/users.scss */
+circle {
+  fill: #665;
+  stroke: lightskyblue;
+  stroke-width: 32;
+}
+
+/* line 10, /Users/LouisDiMeglio/code/p3/quizknows-development/app/assets/stylesheets/users.scss */
+svg {
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg);
+  background: lightskyblue;
+  border-radius: 50%;
+}
