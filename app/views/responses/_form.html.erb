@@ -1,0 +1,16 @@
+<%= form_for([@quiz,@response]) do |f| %>
+  <% if @response.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@response.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @response.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Take Quiz" %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<h1><%= @quiz.title  %></h1>
+
+<div>
+  <%= form_for [ @quiz, @response ] do |f|  %>
+      <%= f.fields_for :answers do |ff|  %>
+        <%= ff.hidden_field :question_id  %>
+        <%= ff.label :choice, value: ff.object.question.options  %>
+        <%= ff.radio_button :choice, ff.object.question.options  %>
+        <%= ff.label :choice, value: ff.object.question.option2  %>
+        <%= ff.radio_button :choice,  ff.object.question.option2  %>
+        <%= ff.label :choice, value: ff.object.question.option3  %>
+        <%= ff.radio_button :choice,  ff.object.question.option3  %>
+        <%= ff.label :choice, value: ff.object.question.option4  %>
+        <%= ff.radio_button :choice,  ff.object.question.option4  %>
+      <% end  %>
+    <%= f.submit "Submit quiz" %>
+  <% end %>
+</div>

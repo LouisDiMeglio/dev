@@ -1,0 +1,16 @@
+<p>
+  <strong>Title:</strong>
+</p>
+
+<%= @questions.each do |question| %>
+  <form>
+    <fieldset>
+      <legend>Question</legend>
+      <%= question.content %><br>
+      <input type="radio" name="question" value="<%= question.options %>" checked> <%= question.options %><br>
+      <input type="radio" name="question" value="<%= question.option2 %>"> <%= question.option2 %><br>
+      <input type="radio" name="question" value="<%= question.option3 %>"> <%= question.option3 %><br>
+      <input type="radio" name="question" value="<%= question.option3 %>"> <%= question.option4 %>
+    </fieldset>
+  </form>
+<% end %>

@@ -1,0 +1,60 @@
+<p>
+  <strong>Title:</strong>
+  <%= @quiz.title %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @quiz.published %>
+</p>
+
+<p>
+  <strong>Posted on:</strong>
+  <%= @quiz.posted_on %>
+</p>
+
+<p>
+  <strong>Questions:</strong>
+  <% @quiz.questions.to_a.each do |question| %>
+    <fieldset>
+      <legend><%= question.content %></legend>
+      <ul>
+        <% if question.answer == "Textfield" %>
+          <li><input type="text" name="question"></li>
+        <% else %>  
+          <li>
+            <%= question.options %>
+          </li>
+          <li>
+            <%= question.option2 %>
+          </li>
+          <li>
+            <%= question.option3 %>
+          </li>
+          <li>
+            <%= question.option4 %>
+          </li>
+          <li>
+            <strong><span>Answer:  </span><%= question.answer %></strong>
+          </li>
+        <% end %>
+      </ul>
+    </fieldset><br>
+  <% end %>
+</p>
+
+  <%= form_for Question.new, url: questions_path do |form| %>
+    <%= form.hidden_field :quiz_id, value: @quiz.id %>
+    <%= form.text_field :content, placeholder: 'Question' %><br>
+    <%= form.text_field :options, placeholder: 'Choice One' %><br>
+    <%= form.text_field :option2, placeholder: 'Choice Two' %><br>
+    <%= form.text_field :option3, placeholder: 'Choice Three' %><br>
+    <%= form.text_field :option4, placeholder: 'Choice Four' %><br>
+    <%= form.text_field :answer, placeholder: 'Correct Answer' %><br>
+  <%= form.submit 'Add Question' %>
+<% end %>
+<%= button_to "Done", @quiz.course, method: :get  %>
+
+
+
+

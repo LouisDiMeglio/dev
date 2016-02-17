@@ -1,0 +1,17 @@
+  <% @questions.each do |question| %>
+    <fieldset>
+      <legend>Question </legend>
+      <%= question.content %><br>
+        <% if question.answer == "Textfield" %>
+          <input type="text" name="question"><br>
+        <% else %>  
+          <input type="radio" name="question" value="<%= question.options %>"> <%= question.options %><br>
+          <input type="radio" name="question" value="<%= question.option2 %>"> <%= question.option2 %><br>
+          <input type="radio" name="question" value="<%= question.option3 %>"> <%= question.option3 %><br>
+          <input type="radio" name="question" value="<%= question.option3 %>"> <%= question.option4 %>
+        <% end %>
+    </fieldset><br>
+  <% end %>
+  <button type="submit">Submit</button>
+
+

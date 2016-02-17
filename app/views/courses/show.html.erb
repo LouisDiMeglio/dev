@@ -1,0 +1,36 @@
+<p class="para">
+  <strong>Title:</strong>
+  <%= @course.title %>
+</p>
+
+<p>
+  <strong>Quizzes:</strong>
+  <ul>
+  <% @quizzes.each do |quiz| %>
+    <li><%= link_to quiz.title, quiz_path(quiz.id) %></li>
+  <% end %>
+  </ul>
+  <%= link_to "New Quiz", new_quiz_path%>
+</p>
+
+<div>
+  <%= form_for User.new, url: users_path do |form| %>
+    <%= form.text_field :user_name, placeholder: 'User Name' %>
+    <%= form.text_field :email, placeholder: 'Email' %>
+    <%= form.hidden_field :course_id, value: @course.id %>
+    <%= form.text_field :password, value: SecureRandom.urlsafe_base64(8, false) %>
+
+    <%= form.submit 'Add Student' %>
+  <% end %>
+</div>
+
+<div>
+  <% @students.each do |student| %>
+    <%= link_to student.user_name, user_path(student.id) %>
+    <%= student.email %>
+    <br>
+  <% end %>
+</div>
+ 
+
+
